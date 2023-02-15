@@ -109,4 +109,24 @@ async function getEpisodesOfShow(id: number): Promise<EpisodeInterface[]> {
 
 /** Write a clear docstring for this function... */
 
-// function populateEpisodes(episodes) { }
+function populateEpisodes(episodes: EpisodeInterface[]): void {
+  $episodesArea.empty();
+
+  for (let episode of episodes) {
+    const $episode = $(
+      `<button class="btn btn-outline-light btn-sm Show-getEpisodes">
+          Episodes
+          // check if there are episodes, make ul w/ variable li
+          <ul>
+            <li>
+              ${episode.name} (season ${episode.season}, ${episode.number}
+            </li>
+          <ul>
+        </button>
+      `);
+
+    $episodesArea.append($episode);
+  }
+
+  $episodesArea.show();
+ }

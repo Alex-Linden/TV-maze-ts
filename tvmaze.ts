@@ -76,7 +76,7 @@ function populateShows(shows: ShowsInterface[]): void {
  *    Hide episodes area (that only gets shown if they ask for episodes)
  */
 
-async function searchForShowAndDisplay() {
+async function searchForShowAndDisplay(): Promise<void> {
   const term = $("#searchForm-term").val() as string;
   const shows = await getShowsByTerm(term);
 
@@ -84,7 +84,7 @@ async function searchForShowAndDisplay() {
   populateShows(shows);
 }
 
-$searchForm.on("submit", async function (evt) {
+$searchForm.on("submit", async function (evt: JQuery.SubmitEvent): Promise<void> {
   evt.preventDefault();
   await searchForShowAndDisplay();
 });

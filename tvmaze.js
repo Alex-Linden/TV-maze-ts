@@ -11133,7 +11133,15 @@ function getEpisodesOfShow(id) {
     });
 }
 /** Write a clear docstring for this function... */
-// function populateEpisodes(episodes) { }
+function populateEpisodes(episodes) {
+    $episodesArea.empty();
+    for (var _i = 0, episodes_1 = episodes; _i < episodes_1.length; _i++) {
+        var episode = episodes_1[_i];
+        var $episode = $("<button class=\"btn btn-outline-light btn-sm Show-getEpisodes\">\n          Episodes\n          // check if there are episodes, make ul w/ variable li\n          <ul>\n            <li>\n              ".concat(episode.name, " (season ").concat(episode.season, ", ").concat(episode.number, "\n            </li>\n          <ul>\n        </button>\n      "));
+        $episodesArea.append($episode);
+    }
+    $episodesArea.show();
+}
 
 
 /***/ })
